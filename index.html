@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Flow</title>
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <link rel="stylesheet" href="styles.css?v=5" />
+</head>
+
+<body>
+    <main class="app">
+        <header>
+            <img src="logo.png" alt="Flow Logo" class="brand-logo" />
+            <div class="header-actions">
+                <div class="tabs">
+                    <button class="tab-btn active" data-tab="chat">Chat</button>
+                    <button class="tab-btn" data-tab="sounds">Sounds</button>
+                    <button class="tab-btn" data-tab="quotes">Quotes</button>
+                </div>
+                <div class="theme-switch-container">
+                    <span class="theme-icon">🌙</span>
+                    <label class="theme-switch">
+                        <input type="checkbox" id="themeToggle">
+                        <span class="theme-slider"></span>
+                    </label>
+                    <span class="theme-icon">☀️</span>
+                </div>
+            </div>
+        </header>
+
+        <section id="chat-tab" class="tab-content active">
+            <div class="chat-container">
+                <div id="messages" class="messages"></div>
+                <form id="form" class="inputRow">
+                    <input id="input" autocomplete="off" placeholder="Share what's on your mind..." />
+                    <button type="submit" id="sendBtn">Send</button>
+                    <button type="button" id="voiceBtn" title="Voice Mode">🎤</button>
+                </form>
+                <div class="voiceRow">
+                    <label for="ttsVoiceSelect">Voice</label>
+                    <select id="ttsVoiceSelect">
+                        <option value="ErXwobaYiN019PkySvjV">Antoni</option>
+                        <option value="AZnzlk1XvdvUeBnXmlld">Domi</option>
+                        <option value="MF3mGyEYCl7XYWbV9V6O">Elli</option>
+                        <option value="JBFqnCBsd6RMkjVDRZzb">George</option>
+                        <option value="VR6AewLTigWG4xSOukaG">Arnold</option>
+                        <option value="pNInz6obpgDQGcFmaJgB">Adam</option>
+                        <option value="yoZ06aMxZJJ28mfd3POQ">Sam</option>
+                        <option value="TxGEqnHWrfWFTfGW9XjX">Josh</option>
+                        <option value="xKhbyU7E3bC6T89Kn26c">Default</option>
+                        <option value="21m00Tcm4TlvDq8ikWAM">Rachel</option>
+                        <option value="EXAVITQu4vr4xnSDxMaL">Bella</option>
+                    </select>
+                </div>
+                <p class="disclaimer">Flow is for conversation and emotional support; it is not a substitute for
+                    professional help. Results may be wrong.</p>
+            </div>
+        </section>
+
+        <section id="sounds-tab" class="tab-content">
+            <div class="sounds-container">
+                <div class="circular-sliders">
+                    <div class="knob-container">
+                        <div class="knob" data-type="brown">
+                            <svg viewBox="0 0 100 100">
+                                <path class="knob-bg" d="M 20 80 A 40 40 0 1 1 80 80" />
+                                <path class="knob-value" d="M 20 80 A 40 40 0 1 1 80 80" />
+                            </svg>
+                            <label>Brown Noise</label>
+                            <input id="vol_brown" type="hidden" value="0.1" />
+                        </div>
+                    </div>
+                    <div class="knob-container">
+                        <div class="knob" data-type="white">
+                            <svg viewBox="0 0 100 100">
+                                <path class="knob-bg" d="M 20 80 A 40 40 0 1 1 80 80" />
+                                <path class="knob-value" d="M 20 80 A 40 40 0 1 1 80 80" />
+                            </svg>
+                            <label>White Noise</label>
+                            <input id="vol_white" type="hidden" value="0.05" />
+                        </div>
+                    </div>
+                    <div class="knob-container">
+                        <div class="knob" data-type="pink">
+                            <svg viewBox="0 0 100 100">
+                                <path class="knob-bg" d="M 20 80 A 40 40 0 1 1 80 80" />
+                                <path class="knob-value" d="M 20 80 A 40 40 0 1 1 80 80" />
+                            </svg>
+                            <label>Pink Noise</label>
+                            <input id="vol_pink" type="hidden" value="0.05" />
+                        </div>
+                    </div>
+                    <div class="knob-container hidden-sound" id="customSoundKnobContainer">
+                        <div class="knob" data-type="custom">
+                            <svg viewBox="0 0 100 100">
+                                <path class="knob-bg" d="M 20 80 A 40 40 0 1 1 80 80" />
+                                <path class="knob-value" d="M 20 80 A 40 40 0 1 1 80 80" />
+                            </svg>
+                            <label id="customSoundLabel">Your Sound</label>
+                            <input id="vol_custom" type="hidden" value="0.1" />
+                        </div>
+                    </div>
+                </div>
+                <div class="soundPromptRow">
+                    <input id="soundPromptInput" placeholder="Describe a calming sound you want..." />
+                    <button type="button" id="generateSoundBtn">Generate Sound</button>
+                </div>
+                <p id="soundPromptStatus" class="soundPromptStatus"></p>
+            </div>
+        </section>
+
+        <section id="quotes-tab" class="tab-content">
+            <div class="chat-container quotes-container">
+                <div class="quotes-header">
+                    <h3>Motivational Quotes</h3>
+                    <button type="button" id="generateQuotesBtn">Generate 10 Quotes</button>
+                </div>
+                <div id="quotesList" class="quotes-list"></div>
+            </div>
+        </section>
+
+      
+        <audio id="audio_custom" loop></audio>
+
+
+    </main>
+
+    <script src="script.js?v=29"></script>
+</body>
+
+</html>
