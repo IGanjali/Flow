@@ -24,3 +24,4 @@ npm start
 
 We created Flow for Canadian teens and students like us. 26% of Canadian teens say their own mental health is poor, and we made Flow to be a safe space for those who need one.
 
+Originally created for HackCanada 2026
